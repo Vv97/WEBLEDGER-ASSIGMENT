@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
+import connectDB from "./db/connect.database";
 const app = express();
 
 //constent
@@ -16,8 +17,9 @@ app.get("/", (req: Request, res: Response) => {
   res.status(200).send({ message: "welcome" });
 });
 
-// running server
-
-app.listen(port, () => {
-  console.log(`server is running at 8080 port`);
+//  First establish a connection to the database then proceed with running the server.
+connectDB().then((_) => {
+  app.listen(port, () => {
+    console.log(`server is running at 8080 port`);
+  });
 });
