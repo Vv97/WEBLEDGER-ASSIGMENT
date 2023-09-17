@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import connectDB from "./db/connect.database";
+import userRoutes from "./routes/user.routes";
+import recipesRouter from "./routes/recipes.routes";
 const app = express();
 
 //constent
@@ -16,6 +18,9 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.status(200).send({ message: "welcome" });
 });
+
+app.use("/users", userRoutes);
+app.use("/recipes", recipesRouter);
 
 //  First establish a connection to the database then proceed with running the server.
 connectDB().then((_) => {
