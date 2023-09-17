@@ -1,4 +1,9 @@
-import { RecipesInterface } from "../types/recipes.interface";
+import { FilterQuery } from "mongoose";
+import savedRecipesModel from "../models/savedRecipes.model";
+import {
+  RecipesInterface,
+  SaveRecipesInterface,
+} from "../types/recipes.interface";
 import axios from "axios";
 
 export const searchRecipes = async (
@@ -20,4 +25,22 @@ export const searchRecipes = async (
     console.log("Error while fetching recipes from server", error);
     throw new Error(error.message);
   }
+};
+
+export const saveRecipes = async (
+  data: SaveRecipesInterface
+): Promise<SaveRecipesInterface> => {
+  try {
+    const save = await savedRecipesModel.create(data);
+    return save;
+  } catch (error: any) {
+    console.log("Error while saving recipes ", error);
+    throw new Error(error.message);
+  }
+};
+
+export const findOneSaveRecipe = async (
+  query: FilterQuery<SaveRecipesInterface>
+) => {
+  return savedRecipesModel.findOne(query).lean();
 };

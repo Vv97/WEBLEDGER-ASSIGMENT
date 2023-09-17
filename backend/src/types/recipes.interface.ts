@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export interface Results {
   id: number;
   title: string;
@@ -10,4 +12,11 @@ export interface RecipesInterface {
   offset: number;
   number: number;
   totalResults: number;
+}
+
+export interface SaveRecipesInterface extends Results {
+  userID: mongoose.Types.ObjectId;
+  createdAt?: Date;
+  updateAt?: Date;
+  _id?: mongoose.Types.ObjectId;
 }
