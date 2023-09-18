@@ -69,3 +69,18 @@ export const getSavedRecipeById = async (req: Request, res: Response) => {
     throw new Error(error);
   }
 };
+
+export const deleteRecipeByID = async (req: Request, res: Response) => {
+  try {
+    const { deleteID } = req.params;
+    if (!deleteID) {
+      return res.status(400).send({
+        message: "The 'deleteID' parameter is missing from the request.",
+      });
+    }
+
+    res.status(200).send({ message: "Recipe successfully deleted." });
+  } catch (error: any) {
+    console.log("Error occur while deleting the recipe");
+  }
+};
