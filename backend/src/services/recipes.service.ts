@@ -42,5 +42,18 @@ export const saveRecipes = async (
 export const findOneSaveRecipe = async (
   query: FilterQuery<SaveRecipesInterface>
 ) => {
-  return savedRecipesModel.findOne(query).lean();
+  // Define your filter conditions
+  const titleCondition = { title: query.title };
+  const userIdCondition = { userID: query.userID };
+
+  // Construct the query using $and
+  const querys = {
+    $and: [titleCondition, userIdCondition],
+  };
+
+  if (query.title && query.userID) {
+    return await savedRecipesModel.findOne(querys).lean();
+  } else {
+    return await savedRecipesModel.findOne(query).lean();
+  }
 };

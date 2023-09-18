@@ -12,7 +12,7 @@ export const userRegisterController = async (req: Request, res: Response) => {
     let userExist = await findOneUser({ email });
 
     if (userExist) {
-      return res.status(404).send({ message: "User already registered" });
+      return res.status(200).send({ message: "User already registered" });
     }
 
     // Validation

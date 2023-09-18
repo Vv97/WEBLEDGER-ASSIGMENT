@@ -1,0 +1,101 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  min-width: max-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  background-color: rgb(28, 28, 28);
+  z-index: 11;
+}
+
+.login_container {
+  background-color: rgb(255, 255, 255);
+  height: max-content;
+  transform: translate3d(0px, 0px, 0px);
+  opacity: 1;
+  z-index: 1;
+  padding: 1rem 2rem 2rem 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-radius: 15px;
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.suContainer > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.suContainer > p {
+  margin-top: 25px;
+  color: #363636;
+  font-size: 1.1rem;
+}
+
+.suContainer > p > span {
+  color: #ef4f5f;
+  cursor: pointer;
+}
+
+.suContainer > div > h2 {
+  color: #4f4f4f;
+  font-size: 2.1rem;
+}
+
+.suContainer > div > button {
+  background-color: inherit;
+  border: none;
+}
+
+.suContainer > div > button > svg {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.signupForm > label {
+  display: flex;
+  font-size: 1.3rem;
+  color: #363636;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.signupForm > label > input,
+.signupForm > input {
+  outline: none;
+  width: 320px;
+  border: 2px solid #e7e7e7;
+  border-radius: 5px;
+  height: 39px;
+  padding-left: 10px;
+  font-size: 1rem;
+  color: #363636;
+}
+
+.signupForm > input[type="submit"] {
+  margin-top: 10px;
+  background-color: #ef4f5f;
+  border: none;
+  height: 48px;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

@@ -1,0 +1,48 @@
+header {
+  /* border: 1px solid red; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+nav > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+nav > div > input {
+  outline: none;
+  height: 28px;
+  padding-left: 10px;
+  font-weight: 500;
+  color: #363636;
+}
+
+nav ul {
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li button {
+  border: none;
+  background-color: inherit;
+  color: #363636;
+  cursor: pointer;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #363636;
+}
