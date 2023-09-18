@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.recpie_container {
+  display: grid;
+  max-width: 1248px;
+  margin: 25px auto;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.recipe_item {
+  background-color: #e0e0e0;
+  padding: 20px;
+  text-align: center;
+}
+
+.recipe_item > div:first-child > img {
+  width: 100%;
+}
+
+.saveRecipe {
+  margin-top: 15px;
+  padding: 15px;
+}

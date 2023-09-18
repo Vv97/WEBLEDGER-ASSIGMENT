@@ -9,17 +9,17 @@ import {
 import { RequireLogin } from "../middleware/user.middleware";
 const recipesRouter = Router();
 
-//GET : recipes
-recipesRouter.get("/", getSaveRecipesController);
+//GET : recipes/search
+recipesRouter.get("/search", searchRecipesController);
 
 //GET : recpies/:_id
 recipesRouter.get("/:_id", getSavedRecipeById);
 
-//GET : recipes/search
-recipesRouter.get("/search", searchRecipesController);
-
 // middleware to check valid user
-recipesRouter.use(deleteRecipeByID);
+recipesRouter.use(RequireLogin);
+
+//GET : recipes
+recipesRouter.get("/", getSaveRecipesController);
 
 //POST : recipes/save
 recipesRouter.post("/save", saveRecipesController);

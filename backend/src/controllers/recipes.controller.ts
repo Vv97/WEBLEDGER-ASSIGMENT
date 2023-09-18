@@ -25,14 +25,18 @@ export const searchRecipesController = async (req: Request, res: Response) => {
 
 export const saveRecipesController = async (req: Request, res: Response) => {
   try {
-    let { title, userID } = req.body;
-    const RecipeExist = await findOneSaveRecipe({ title, userID });
+    let { title } = req.body;
+    let { _id } = req.body.user;
+    const RecipeExist = await findOneSaveRecipe({ title, userID: _id });
 
     if (RecipeExist) {
       return res.status(200).send({ message: "Recipe is already saved." });
     }
 
-    const createRecipe = await saveRecipes({ ...req.body });
+    const createRecipe = await saveRecipes({
+      ...req.body,
+      userID: req.body.user._id,
+    });
 
     res.status(200).send({ message: "Recipe save successfully!" });
   } catch (error: any) {
@@ -43,8 +47,8 @@ export const saveRecipesController = async (req: Request, res: Response) => {
 
 export const getSaveRecipesController = async (req: Request, res: Response) => {
   try {
-    const { userID } = req.body;
-    const saveRecipes = await savedRecipesModel.find({ userID }).lean();
+    const { _id } = req.body.user;
+    const saveRecipes = await savedRecipesModel.find({ userID: _id }).lean();
 
     res.status(200).send({ save: saveRecipes });
   } catch (error: any) {
