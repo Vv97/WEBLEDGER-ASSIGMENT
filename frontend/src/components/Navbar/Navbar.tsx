@@ -37,7 +37,9 @@ export const Navbar = () => {
 
   const fetchRecipe = (query: string): void => {
     axios
-      .get(`http://localhost:8080/recipes/search?query=${query}`)
+      .get(
+        `https://webledger-assigment.onrender.com/recipes/search?query=${query}`
+      )
       .then((res) => {
         setRecipe(res.data.results);
       })

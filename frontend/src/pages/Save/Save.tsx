@@ -9,7 +9,7 @@ import { SaveRecipesList } from "../../components/SaveRecipesList/SaveRecipesLis
 export const Save = () => {
   const { save, setSave } = useContext(SaveContext);
   const getSaveRecipes = async () => {
-    const url = "http://localhost:8080/recipes";
+    const url = "https://webledger-assigment.onrender.com/recipes";
     const token: string = localStorage.getItem("users") || "";
     const users: SignupResponseInterface = token
       ? JSON.parse(token)

@@ -19,7 +19,7 @@ export const SinglePage = () => {
   const { id } = useParams();
   const [data, setdata] = useState<GetSaveRecipe>(initialData);
   const getSaveRecipes = async () => {
-    const url = `http://localhost:8080/recipes/${id}`;
+    const url = `https://webledger-assigment.onrender.com/recipes/${id}`;
     const token: string = localStorage.getItem("users") || "";
     const users: SignupResponseInterface = token
       ? JSON.parse(token)

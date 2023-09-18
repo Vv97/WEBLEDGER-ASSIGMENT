@@ -22,7 +22,7 @@ export const Recipes = () => {
     const users: SignupResponseInterface = token
       ? JSON.parse(token)
       : { message: "", users: {}, token: "" };
-    const url = "http://localhost:8080/recipes/save";
+    const url = "https://webledger-assigment.onrender.com/recipes/save";
 
     const options = {
       headers: {

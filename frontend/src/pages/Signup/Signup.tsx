@@ -25,7 +25,8 @@ export const Signup = ({ handleShowSignup, handleShowLogin }: userProps) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const apiUrl: string = "http://localhost:8080/users/register";
+    const apiUrl: string =
+      "https://webledger-assigment.onrender.com/users/register";
     try {
       const response: AxiosResponse<SignupResponseInterface> = await axios.post(
         apiUrl,
